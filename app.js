@@ -1,6 +1,6 @@
 // AutoPress AI - Application
 const app = {
-    apiKey: localStorage.getItem('nvidia_api_key') || '',
+    apiKey: localStorage.getItem('nvidia_api_key') || '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',
     apiEndpoint: 'https://integrate.api.nvidia.com/v1',
     articles: JSON.parse(localStorage.getItem('articles') || '[]'),
     currentFilter: 'all',
@@ -605,6 +605,18 @@ document.head.appendChild(style);
 
 // Demo articles
 const demoArticles = [
+    {
+        id: 1000,
+        title: "NVIDIA Build et les API IA gratuits en 2026 : révolution dans le monde de l'intelligence artificielle",
+        body: `### Introduction\n\nNVIDIA, leader dans le domaine des cartes graphiques et de l'intelligence artificielle, a récemment annoncé le lancement de NVIDIA Build, une plateforme visant à faciliter le développement et le déploiement d'applications IA. Mais ce qui est encore plus intéressant, c'est que NVIDIA propose désormais des API IA gratuits pour les développeurs.\n\n### NVIDIA Build : une plateforme pour les développeurs\n\nNVIDIA Build est une plateforme complète qui permet aux développeurs de créer, d'entraîner et de déployer des modèles IA de manière efficace. Elle offre une variété d'outils et de services, notamment des bibliothèques de code, des modèles pré-entraînés et des services de cloud pour le déploiement.\n\n- Bibliothèques de code optimisées\n- Modèles pré-entraînés prêts à l'emploi\n- Services de cloud pour le déploiement rapide\n- Infrastructure gérée par NVIDIA\n\n### Les API IA gratuits : un game-changer\n\nL'annonce la plus importante est la mise à disposition des API IA gratuits pour les développeurs. Ces API permettent aux développeurs d'accéder à des capacités IA avancées sans avoir à payer des frais de licence élevés. Cela signifie que les développeurs peuvent créer des applications IA sans avoir à se soucier des coûts.\n\n### Conclusion\n\nLes API IA gratuits de NVIDIA représentent une avancée significative pour l'industrie de l'intelligence artificielle. En rendant ces technologies accessibles à tous, NVIDIA ouvre la voie à une nouvelle génération d'applications IA innovantes et créatives.`,
+        html: `<h2>NVIDIA Build et les API IA gratuits en 2026 : révolution dans le monde de l'intelligence artificielle</h2><h3>Introduction</h3><p>NVIDIA, leader dans le domaine des cartes graphiques et de l'intelligence artificielle, a récemment annoncé le lancement de NVIDIA Build, une plateforme visant à faciliter le développement et le déploiement d'applications IA. Mais ce qui est encore plus intéressant, c'est que NVIDIA propose désormais des API IA gratuits pour les développeurs.</p><h3>NVIDIA Build : une plateforme pour les développeurs</h3><p>NVIDIA Build est une plateforme complète qui permet aux développeurs de créer, d'entraîner et de déployer des modèles IA de manière efficace. Elle offre une variété d'outils et de services, notamment des bibliothèques de code, des modèles pré-entraînés et des services de cloud pour le déploiement.</p><ul><li><strong>Bibliothèques de code optimisées</strong></li><li><strong>Modèles pré-entraînés prêts à l'emploi</strong></li><li><strong>Services de cloud pour le déploiement rapide</strong></li><li><strong>Infrastructure gérée par NVIDIA</strong></li></ul><h3>Les API IA gratuits : un game-changer</h3><p>L'annonce la plus importante est la mise à disposition des API IA gratuits pour les développeurs. Ces API permettent aux développeurs d'accéder à des capacités IA avancées sans avoir à payer des frais de licence élevés. Cela signifie que les développeurs peuvent créer des applications IA sans avoir à se soucier des coûts.</p><h3>Conclusion</h3><p>Les API IA gratuits de NVIDIA représentent une avancée significative pour l'industrie de l'intelligence artificielle. En rendant ces technologies accessibles à tous, NVIDIA ouvre la voie à une nouvelle génération d'applications IA innovantes et créatives.</p>`,
+        category: "tech",
+        topic: "NVIDIA Build API IA gratuits",
+        excerpt: "NVIDIA, leader dans le domaine des cartes graphiques et de l'intelligence artificielle, a récemment annoncé le lancement de NVIDIA Build...",
+        timestamp: new Date().toISOString(),
+        views: 247,
+        tags: ["tech", "nvidia", "ia"]
+    },
     {
         id: 1001,
         title: "L'IA Générative Révolutionne le Gaming en 2026",

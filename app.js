@@ -7,6 +7,12 @@ const app = {
     currentArticle: null,
 
     init() {
+        // Load demo articles if first visit
+        if (this.articles.length === 0) {
+            this.articles = [...demoArticles];
+            this.saveArticles();
+        }
+        
         this.setupNavigation();
         this.setupForms();
         this.setupFilters();
@@ -596,6 +602,46 @@ style.textContent = `
     }
 `;
 document.head.appendChild(style);
+
+// Demo articles
+const demoArticles = [
+    {
+        id: 1001,
+        title: "L'IA Générative Révolutionne le Gaming en 2026",
+        body: `### Introduction\n\nL'intelligence artificielle transforme l'industrie du jeu vidéo à une vitesse sans précédent. En 2026, les moteurs de génération procédurale alimentés par l'IA créent des mondes infinis, des personnages dotés de mémoire conversationnelle et des expériences de jeu véritablement uniques.\n\n### Mondes Procéduraux Infinis\n\nLes nouveaux moteurs de génération de contenu utilisent des modèles de diffusion pour créer des textures, des modèles 3D et des environnements en temps réel. Cela signifie que deux joueurs ne vivront jamais exactement la même expérience.\n\n- **Génération de textures** : Création de surfaces détaillées en quelques millisecondes\n- **Modèles 3D automatisés** : Génération d'assets adaptés au style artistique du jeu\n- **Narration émergente** : Des histoires qui se déploient selon les choix du joueur\n\n### PNJ Révolutionnaires\n\nLes personnages non-joueurs propulsés par des LLM (Large Language Models) peuvent maintenir des conversations naturelles, se souvenir des interactions passées et adapter leur comportement en fonction de la personnalité du joueur.\n\n### Conclusion\n\nL'IA ne remplace pas les développeurs — elle les amplifie. Les créateurs peuvent se concentrer sur la vision artistique pendant que l'IA gère la génération de contenu à grande échelle.`,
+        html: `<h2>L'IA Générative Révolutionne le Gaming en 2026</h2><h3>Introduction</h3><p>L'intelligence artificielle transforme l'industrie du jeu vidéo à une vitesse sans précédent. En 2026, les moteurs de génération procédurale alimentés par l'IA créent des mondes infinis, des personnages dotés de mémoire conversationnelle et des expériences de jeu véritablement uniques.</p><h3>Mondes Procéduraux Infinis</h3><p>Les nouveaux moteurs de génération de contenu utilisent des modèles de diffusion pour créer des textures, des modèles 3D et des environnements en temps réel. Cela signifie que deux joueurs ne vivront jamais exactement la même expérience.</p><ul><li><strong>Génération de textures</strong> : Création de surfaces détaillées en quelques millisecondes</li><li><strong>Modèles 3D automatisés</strong> : Génération d'assets adaptés au style artistique du jeu</li><li><strong>Narration émergente</strong> : Des histoires qui se déploient selon les choix du joueur</li></ul><h3>PNJ Révolutionnaires</h3><p>Les personnages non-joueurs propulsés par des LLM (Large Language Models) peuvent maintenir des conversations naturelles, se souvenir des interactions passées et adapter leur comportement en fonction de la personnalité du joueur.</p><h3>Conclusion</h3><p>L'IA ne remplace pas les développeurs — elle les amplifie. Les créateurs peuvent se concentrer sur la vision artistique pendant que l'IA gère la génération de contenu à grande échelle.</p>`,
+        category: "gaming",
+        topic: "IA dans le gaming",
+        excerpt: "L'intelligence artificielle transforme l'industrie du jeu vidéo à une vitesse sans précédent. En 2026, les moteurs de génération procédurale alimentés par l'IA créent des mondes infinis...",
+        timestamp: new Date(Date.now() - 86400000 * 2).toISOString(),
+        views: 142,
+        tags: ["gaming", "ia", "nvidia"]
+    },
+    {
+        id: 1002,
+        title: "NVIDIA NIM : L'API Gratuite pour 100+ Modèles d'IA",
+        body: `### Introduction\n\nNVIDIA a changé la donne en 2026 avec l'ouverture de son catalogue de modèles d'IA sur build.nvidia.com. Accessible gratuitement via une API compatible OpenAI, cette plateforme permet aux développeurs d'accéder à des centaines de modèles sans carte bancaire.\n\n### Qu'est-ce que NVIDIA NIM ?\n\nNVIDIA Inference Microservices (NIM) est une plateforme qui héberge des modèles d'IA optimisés sur l'infrastructure DGX Cloud de NVIDIA. L'accès se fait via une API standard compatible OpenAI.\n\n### Les Avantages\n\n- **Gratuit** : 1 000 crédits à l'inscription, 40 requêtes/minute\n- **Compatible OpenAI** : Change juste le base_url et la clé API\n- **Modèles variés** : Llama, DeepSeek, Nemotron, Kimi, GLM, Qwen...\n- **Haute performance** : Exécution optimisée sur GPUs NVIDIA\n\n### Comment Commencer ?\n\nIl suffit de créer un compte gratuit sur build.nvidia.com, générer une clé API au préfixe nvapi-, et pointer ton client OpenAI vers https://integrate.api.nvidia.com/v1.\n\n### Conclusion\n\nNVIDIA positionne sa plateforme comme un hub neutre face aux écosystèmes fermés d'OpenAI et Anthropic. Pour les développeurs, c'est une opportunité unique de prototyper avec des modèles de pointe sans investissement initial.`,
+        html: `<h2>NVIDIA NIM : L'API Gratuite pour 100+ Modèles d'IA</h2><h3>Introduction</h3><p>NVIDIA a changé la donne en 2026 avec l'ouverture de son catalogue de modèles d'IA sur build.nvidia.com. Accessible gratuitement via une API compatible OpenAI, cette plateforme permet aux développeurs d'accéder à des centaines de modèles sans carte bancaire.</p><h3>Qu'est-ce que NVIDIA NIM ?</h3><p>NVIDIA Inference Microservices (NIM) est une plateforme qui héberge des modèles d'IA optimisés sur l'infrastructure DGX Cloud de NVIDIA. L'accès se fait via une API standard compatible OpenAI.</p><h3>Les Avantages</h3><ul><li><strong>Gratuit</strong> : 1 000 crédits à l'inscription, 40 requêtes/minute</li><li><strong>Compatible OpenAI</strong> : Change juste le base_url et la clé API</li><li><strong>Modèles variés</strong> : Llama, DeepSeek, Nemotron, Kimi, GLM, Qwen...</li><li><strong>Haute performance</strong> : Exécution optimisée sur GPUs NVIDIA</li></ul><h3>Comment Commencer ?</h3><p>Il suffit de créer un compte gratuit sur build.nvidia.com, générer une clé API au préfixe nvapi-, et pointer ton client OpenAI vers https://integrate.api.nvidia.com/v1.</p><h3>Conclusion</h3><p>NVIDIA positionne sa plateforme comme un hub neutre face aux écosystèmes fermés d'OpenAI et Anthropic. Pour les développeurs, c'est une opportunité unique de prototyper avec des modèles de pointe sans investissement initial.</p>`,
+        category: "tech",
+        topic: "NVIDIA NIM API",
+        excerpt: "NVIDIA a changé la donne en 2026 avec l'ouverture de son catalogue de modèles d'IA sur build.nvidia.com. Accessible gratuitement via une API compatible OpenAI...",
+        timestamp: new Date(Date.now() - 86400000).toISOString(),
+        views: 89,
+        tags: ["tech", "nvidia", "api"]
+    },
+    {
+        id: 1003,
+        title: "DeepSeek V3.1 : Le Nouveau Champion du Code",
+        body: `### Introduction\n\nDeepSeek a marqué 2026 avec la sortie de sa version 3.1, un modèle de 284 milliards de paramètres en architecture Mixture of Experts (MoE) qui domine les benchmarks de programmation.\n\n### Performance Exceptionnelle\n\nAvec une fenêtre de contexte de 1 million de tokens, DeepSeek V3.1 peut analyser des bases de code complètes en une seule passe. Les benchmarks montrent des performances supérieures à GPT-4 sur les tâches de refactoring et de débogage.\n\n### Architecture MoE\n\nL'architecture Mixture of Experts n'active qu'une fraction des paramètres à chaque inférence, réduisant drastiquement les coûts computationnels tout en maintenant une qualité de sortie exceptionnelle.\n\n- **Paramètres totaux** : 284B\n- **Paramètres actifs** : ~37B par token\n- **Contexte** : 1M tokens\n- **Optimisation** : TensorRT-LLM sur GPUs NVIDIA\n\n### Cas d'Usage\n\nDeepSeek V3.1 excelle particulièrement dans :\n\n1. La génération de code multi-fichiers\n2. L'analyse de code legacy\n3. La traduction entre langages de programmation\n4. La documentation automatique\n\n### Conclusion\n\nDisponible gratuitement sur build.nvidia.com, DeepSeek V3.1 représente une alternative puissante et économique aux modèles propriétaires pour les développeurs.`,
+        html: `<h2>DeepSeek V3.1 : Le Nouveau Champion du Code</h2><h3>Introduction</h3><p>DeepSeek a marqué 2026 avec la sortie de sa version 3.1, un modèle de 284 milliards de paramètres en architecture Mixture of Experts (MoE) qui domine les benchmarks de programmation.</p><h3>Performance Exceptionnelle</h3><p>Avec une fenêtre de contexte de 1 million de tokens, DeepSeek V3.1 peut analyser des bases de code complètes en une seule passe. Les benchmarks montrent des performances supérieures à GPT-4 sur les tâches de refactoring et de débogage.</p><h3>Architecture MoE</h3><p>L'architecture Mixture of Experts n'active qu'une fraction des paramètres à chaque inférence, réduisant drastiquement les coûts computationnels tout en maintenant une qualité de sortie exceptionnelle.</p><ul><li><strong>Paramètres totaux</strong> : 284B</li><li><strong>Paramètres actifs</strong> : ~37B par token</li><li><strong>Contexte</strong> : 1M tokens</li><li><strong>Optimisation</strong> : TensorRT-LLM sur GPUs NVIDIA</li></ul><h3>Cas d'Usage</h3><p>DeepSeek V3.1 excelle particulièrement dans :</p><ol><li>La génération de code multi-fichiers</li><li>L'analyse de code legacy</li><li>La traduction entre langages de programmation</li><li>La documentation automatique</li></ol><h3>Conclusion</h3><p>Disponible gratuitement sur build.nvidia.com, DeepSeek V3.1 représente une alternative puissante et économique aux modèles propriétaires pour les développeurs.</p>`,
+        category: "ia",
+        topic: "DeepSeek V3.1",
+        excerpt: "DeepSeek a marqué 2026 avec la sortie de sa version 3.1, un modèle de 284 milliards de paramètres en architecture Mixture of Experts (MoE)...",
+        timestamp: new Date().toISOString(),
+        views: 56,
+        tags: ["ia", "deepseek", "code"]
+    }
+];
 
 // Initialize
 document.addEventListener('DOMContentLoaded', () => app.init());

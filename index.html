@@ -3,228 +3,253 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Gaming IA — L'IA au service du Gaming</title>
+    <title>AutoPress AI — Publication Automatique d'Articles</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
-    <!-- GitHub Pages deployment active -->
 </head>
 <body>
-    <div class="bg-grid"></div>
-    <div class="cursor-glow"></div>
-
+    <div class="noise-bg"></div>
+    
     <nav class="navbar">
-        <div class="logo">
-            <span class="logo-icon">🎮</span>
-            <span class="logo-text">Gaming<span class="highlight">IA</span></span>
+        <div class="nav-brand">
+            <span class="brand-icon">✦</span>
+            <span class="brand-text">AutoPress<span class="brand-accent">AI</span></span>
         </div>
         <ul class="nav-links">
-            <li><a href="#hero">Accueil</a></li>
-            <li><a href="#features">Fonctionnalités</a></li>
-            <li><a href="#games">Jeux</a></li>
-            <li><a href="#ai-demo">Démo IA</a></li>
-            <li><a href="#contact">Contact</a></li>
+            <li><a href="#articles" class="active">Articles</a></li>
+            <li><a href="#generate">Générer</a></li>
+            <li><a href="#dashboard">Dashboard</a></li>
+            <li><a href="#settings">Paramètres</a></li>
         </ul>
-        <button class="nav-cta">Lancer l'IA</button>
+        <button class="nav-btn" id="api-status">
+            <span class="status-dot offline"></span>
+            API NVIDIA
+        </button>
     </nav>
 
-    <section id="hero" class="hero">
-        <div class="hero-content">
-            <div class="badge">🚀 Propulsé par l'IA</div>
-            <h1 class="hero-title">
-                Le <span class="gradient-text">Gaming</span><br>
-                Réinventé par<br>
-                <span class="gradient-text">l'Intelligence Artificielle</span>
-            </h1>
-            <p class="hero-subtitle">
-                Découvre une nouvelle dimension du jeu vidéo où l'IA génère des mondes, 
-                adapte les défis en temps réel et crée des expériences uniques à chaque partie.
-            </p>
-            <div class="hero-buttons">
-                <button class="btn btn-primary">
-                    <span>🎮 Jouer Maintenant</span>
-                </button>
-                <button class="btn btn-secondary">
-                    <span>▶ Voir la Démo</span>
-                </button>
-            </div>
-            <div class="stats">
-                <div class="stat">
-                    <span class="stat-number" data-target="50000">0</span>+
-                    <span class="stat-label">Joueurs Actifs</span>
-                </div>
-                <div class="stat">
-                    <span class="stat-number" data-target="150">0</span>+
-                    <span class="stat-label">Mondes IA</span>
-                </div>
-                <div class="stat">
-                    <span class="stat-number" data-target="99">0</span>%
-                    <span class="stat-label">Satisfaction</span>
+    <main class="main-container">
+        <!-- Section Articles -->
+        <section id="articles" class="section active">
+            <div class="section-header">
+                <h1>Articles Publiés</h1>
+                <p>Contenu généré automatiquement via NVIDIA AI</p>
+                <div class="filter-bar">
+                    <button class="filter-btn active" data-filter="all">Tous</button>
+                    <button class="filter-btn" data-filter="tech">Tech</button>
+                    <button class="filter-btn" data-filter="gaming">Gaming</button>
+                    <button class="filter-btn" data-filter="ia">IA</button>
+                    <button class="filter-btn" data-filter="science">Science</button>
                 </div>
             </div>
-        </div>
-        <div class="hero-visual">
-            <div class="hologram-card">
-                <div class="hologram-header">
-                    <span class="pulse"></span>
-                    <span>IA EN LIGNE</span>
-                </div>
-                <div class="hologram-body">
-                    <div class="hologram-line"></div>
-                    <div class="hologram-line short"></div>
-                    <div class="hologram-line"></div>
-                    <div class="hologram-line medium"></div>
-                </div>
-                <div class="hologram-footer">
-                    <span>Latence: 12ms</span>
-                    <span>GPU: 98%</span>
+            <div class="articles-grid" id="articles-container">
+                <div class="empty-state">
+                    <div class="empty-icon">📝</div>
+                    <h3>Aucun article encore</h3>
+                    <p>Génère ton premier article avec l'API NVIDIA</p>
+                    <button class="btn btn-primary" onclick="showSection('generate')">
+                        ✨ Générer un Article
+                    </button>
                 </div>
             </div>
-            <div class="floating-orb orb-1"></div>
-            <div class="floating-orb orb-2"></div>
-            <div class="floating-orb orb-3"></div>
-        </div>
-    </section>
+        </section>
 
-    <section id="features" class="features">
-        <div class="section-header">
-            <span class="section-badge">Fonctionnalités</span>
-            <h2>La Puissance de l'IA dans tes Mains</h2>
-            <p>Des technologies de pointe qui transforment chaque session de jeu en une expérience unique.</p>
-        </div>
-        <div class="features-grid">
-            <div class="feature-card">
-                <div class="feature-icon">🧠</div>
-                <h3>IA Adaptative</h3>
-                <p>L'IA analyse ton style de jeu et ajuste la difficulté en temps réel pour un challenge toujours optimal.</p>
-            </div>
-            <div class="feature-card">
-                <div class="feature-icon">🌍</div>
-                <h3>Mondes Procéduraux</h3>
-                <p>Des univers infinis générés par IA. Jamais deux parties ne se ressemblent.</p>
-            </div>
-            <div class="feature-card">
-                <div class="feature-icon">🎨</div>
-                <h3>Assets Générés</h3>
-                <p>Textures, modèles 3D et animations créés automatiquement par nos modèles de diffusion.</p>
-            </div>
-            <div class="feature-card">
-                <div class="feature-icon">💬</div>
-                <h3>PNJ Réalistes</h3>
-                <p>Des personnages non-joueurs avec des conversations naturelles propulsées par LLM.</p>
-            </div>
-            <div class="feature-card">
-                <div class="feature-icon">⚡</div>
-                <h3>Optimisation RT</h3>
-                <p>Le moteur IA optimise les graphismes et la physique pour maintenir 120 FPS constant.</p>
-            </div>
-            <div class="feature-card">
-                <div class="feature-icon">🔮</div>
-                <h3>Prédiction d'Actions</h3>
-                <p>L'IA anticipe tes mouvements pour réduire la latence perçue et fluidifier le gameplay.</p>
-            </div>
-        </div>
-    </section>
-
-    <section id="games" class="games">
-        <div class="section-header">
-            <span class="section-badge">Jeux IA</span>
-            <h2>Notre Catalogue</h2>
-            <p>Des jeux conçus from scratch avec l'IA au cœur de l'expérience.</p>
-        </div>
-        <div class="games-grid">
-            <div class="game-card">
-                <div class="game-cover" style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);">
-                    <span class="game-tag">RPG IA</span>
-                </div>
-                <div class="game-info">
-                    <h3>Neon Chronicles</h3>
-                    <p>Un RPG cyberpunk où chaque quête est générée par IA selon tes choix moraux.</p>
-                    <button class="btn btn-small">Jouer</button>
-                </div>
-            </div>
-            <div class="game-card">
-                <div class="game-cover" style="background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);">
-                    <span class="game-tag">Stratégie</span>
-                </div>
-                <div class="game-info">
-                    <h3>Quantum Tactics</h3>
-                    <p>Stratégie spatiale avec des adversaires IA qui apprennent de tes tactiques.</p>
-                    <button class="btn btn-small">Jouer</button>
-                </div>
-            </div>
-            <div class="game-card">
-                <div class="game-cover" style="background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);">
-                    <span class="game-tag">Aventure</span>
-                </div>
-                <div class="game-info">
-                    <h3>Echo Worlds</h3>
-                    <p>Exploration de mondes procéduraux narrés par une IA créative en temps réel.</p>
-                    <button class="btn btn-small">Jouer</button>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <section id="ai-demo" class="ai-demo">
-        <div class="demo-container">
-            <div class="demo-text">
-                <span class="section-badge">Démo Interactive</span>
-                <h2>Teste l'IA Générative</h2>
-                <p>Écris une description et notre IA générera un concept de jeu en temps réel.</p>
-                <div class="demo-input-group">
-                    <input type="text" id="ai-prompt" placeholder="Ex: Un shooter cyberpunk dans Tokyo 2089...">
-                    <button id="generate-btn" class="btn btn-primary">Générer ⚡</button>
-                </div>
-            </div>
-            <div class="demo-output">
-                <div class="terminal">
-                    <div class="terminal-header">
-                        <span class="terminal-dot red"></span>
-                        <span class="terminal-dot yellow"></span>
-                        <span class="terminal-dot green"></span>
-                        <span class="terminal-title">AI_Core_v3.2.exe</span>
+        <!-- Section Génération -->
+        <section id="generate" class="section">
+            <div class="generate-container">
+                <div class="generate-left">
+                    <div class="section-header">
+                        <span class="badge">🤖 Propulsé par NVIDIA</span>
+                        <h1>Générer un Article</h1>
+                        <p>Décris le sujet et l'IA écrira un article complet</p>
                     </div>
-                    <div class="terminal-body" id="terminal-output">
-                        <div class="line">
-                            <span class="prompt">$</span>
-                            <span class="command">Système prêt. En attente d'instructions...</span>
+                    
+                    <div class="form-group">
+                        <label>Sujet de l'article</label>
+                        <input type="text" id="article-topic" placeholder="Ex: Les avancées de l'IA en 2026..." class="form-input">
+                    </div>
+                    
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label>Catégorie</label>
+                            <select id="article-category" class="form-select">
+                                <option value="tech">Technologie</option>
+                                <option value="gaming">Gaming</option>
+                                <option value="ia">Intelligence Artificielle</option>
+                                <option value="science">Science</option>
+                                <option value="business">Business</option>
+                                <option value="culture">Culture</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label>Ton</label>
+                            <select id="article-tone" class="form-select">
+                                <option value="professional">Professionnel</option>
+                                <option value="casual">Décontracté</option>
+                                <option value="technical">Technique</option>
+                                <option value="journalistic">Journalistique</option>
+                                <option value="humorous">Humoristique</option>
+                            </select>
+                        </div>
+                    </div>
+                    
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label>Longueur</label>
+                            <select id="article-length" class="form-select">
+                                <option value="short">Court (~300 mots)</option>
+                                <option value="medium" selected>Moyen (~600 mots)</option>
+                                <option value="long">Long (~1200 mots)</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label>Langue</label>
+                            <select id="article-lang" class="form-select">
+                                <option value="fr">Français</option>
+                                <option value="en">English</option>
+                                <option value="es">Español</option>
+                                <option value="de">Deutsch</option>
+                            </select>
+                        </div>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label>Mots-clés (optionnel)</label>
+                        <input type="text" id="article-keywords" placeholder="IA, NVIDIA, deep learning, séparés par virgules" class="form-input">
+                    </div>
+                    
+                    <div class="form-group">
+                        <label>Modèle NVIDIA</label>
+                        <select id="model-select" class="form-select">
+                            <option value="meta/llama-3.1-70b-instruct">Llama 3.1 70B</option>
+                            <option value="deepseek-ai/deepseek-v3.1">DeepSeek V3.1</option>
+                            <option value="nvidia/nemotron-3-super-120b-a12b">Nemotron Super 120B</option>
+                            <option value="moonshotai/kimi-k2">Kimi K2</option>
+                            <option value="zhipuai/glm-5.1">GLM 5.1</option>
+                            <option value="qwen/qwen-2.5-72b-instruct">Qwen 2.5 72B</option>
+                        </select>
+                    </div>
+                    
+                    <button class="btn btn-generate" id="generate-btn">
+                        <span class="btn-icon">⚡</span>
+                        <span class="btn-text">Générer l'Article</span>
+                        <div class="btn-loading" style="display:none">
+                            <span class="spinner"></span>
+                            Génération...
+                        </div>
+                    </button>
+                </div>
+                
+                <div class="generate-right">
+                    <div class="preview-panel">
+                        <div class="preview-header">
+                            <span class="preview-title">Aperçu</span>
+                            <span class="preview-status" id="preview-status">En attente...</span>
+                        </div>
+                        <div class="preview-content" id="preview-content">
+                            <div class="preview-placeholder">
+                                <div class="placeholder-icon">✨</div>
+                                <p>L'article généré apparaîtra ici</p>
+                                <small>Utilise l'API NVIDIA pour créer du contenu unique</small>
+                            </div>
+                        </div>
+                        <div class="preview-actions" id="preview-actions" style="display:none">
+                            <button class="btn btn-secondary" id="regenerate-btn">🔄 Régénérer</button>
+                            <button class="btn btn-primary" id="publish-btn">🚀 Publier</button>
                         </div>
                     </div>
                 </div>
             </div>
-        </div>
-    </section>
+        </section>
 
-    <section id="contact" class="contact">
-        <div class="section-header">
-            <span class="section-badge">Contact</span>
-            <h2>Rejoins la Révolution</h2>
-            <p>Reste informé des nouveaux jeux et fonctionnalités IA.</p>
-        </div>
-        <div class="contact-form">
-            <input type="email" placeholder="Ton email" class="contact-input">
-            <button class="btn btn-primary">S'inscrire 🚀</button>
-        </div>
-        <div class="social-links">
-            <a href="#" class="social-link">Discord</a>
-            <a href="#" class="social-link">Twitter / X</a>
-            <a href="#" class="social-link">GitHub</a>
-            <a href="#" class="social-link">YouTube</a>
-        </div>
-    </section>
-
-    <footer class="footer">
-        <div class="footer-content">
-            <div class="footer-logo">
-                <span class="logo-icon">🎮</span>
-                <span class="logo-text">Gaming<span class="highlight">IA</span></span>
+        <!-- Section Dashboard -->
+        <section id="dashboard" class="section">
+            <div class="section-header">
+                <h1>Dashboard</h1>
+                <p>Statistiques de publication</p>
             </div>
-            <p class="footer-text">Propulsé par l'IA. Créé pour les joueurs.</p>
-            <p class="footer-copyright">© 2026 GamingIA. Tous droits réservés.</p>
-        </div>
-    </footer>
+            <div class="stats-grid">
+                <div class="stat-card">
+                    <div class="stat-icon">📝</div>
+                    <div class="stat-value" id="stat-total">0</div>
+                    <div class="stat-label">Articles Publiés</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-icon">⚡</div>
+                    <div class="stat-value" id="stat-generated">0</div>
+                    <div class="stat-label">Générés aujourd'hui</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-icon">👁️</div>
+                    <div class="stat-value" id="stat-views">0</div>
+                    <div class="stat-label">Vues Totales</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-icon">🏷️</div>
+                    <div class="stat-value" id="stat-categories">0</div>
+                    <div class="stat-label">Catégories</div>
+                </div>
+            </div>
+            <div class="recent-activity">
+                <h3>Activité Récente</h3>
+                <div class="activity-list" id="activity-list">
+                    <div class="activity-empty">Aucune activité pour le moment</div>
+                </div>
+            </div>
+        </section>
 
-    <script src="script.js"></script>
+        <!-- Section Paramètres -->
+        <section id="settings" class="section">
+            <div class="settings-container">
+                <div class="section-header">
+                    <h1>Paramètres API</h1>
+                    <p>Configure ta connexion à l'API NVIDIA</p>
+                </div>
+                
+                <div class="settings-card">
+                    <div class="settings-section">
+                        <h3>🔑 Clé API NVIDIA</h3>
+                        <p class="settings-desc">Obtiens une clé gratuite sur <a href="https://build.nvidia.com" target="_blank">build.nvidia.com</a></p>
+                        <div class="api-key-input">
+                            <input type="password" id="api-key" placeholder="nvapi-XXXXXXXXXXXXXXXX" class="form-input">
+                            <button class="btn btn-icon" id="toggle-key">👁️</button>
+                        </div>
+                        <div class="api-info">
+                            <span class="info-badge">✓ Gratuit</span>
+                            <span class="info-badge">1 000 crédits</span>
+                            <span class="info-badge">40 req/min</span>
+                        </div>
+                    </div>
+                    
+                    <div class="settings-section">
+                        <h3>⚙️ Configuration</h3>
+                        <div class="setting-item">
+                            <label>Temperature</label>
+                            <input type="range" id="setting-temp" min="0" max="1" step="0.1" value="0.7">
+                            <span class="setting-value">0.7</span>
+                        </div>
+                        <div class="setting-item">
+                            <label>Max Tokens</label>
+                            <input type="range" id="setting-tokens" min="256" max="4096" step="256" value="2048">
+                            <span class="setting-value">2048</span>
+                        </div>
+                    </div>
+                    
+                    <button class="btn btn-primary" id="save-settings">💾 Sauvegarder</button>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Modal de lecture d'article -->
+    <div class="modal" id="article-modal">
+        <div class="modal-overlay"></div>
+        <div class="modal-content">
+            <button class="modal-close">&times;</button>
+            <article class="article-full" id="article-full"></article>
+        </div>
+    </div>
+
+    <script src="app.js"></script>
 </body>
 </html>

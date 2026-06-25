@@ -36,10 +36,22 @@
                 <p>Contenu généré automatiquement via NVIDIA AI</p>
                 <div class="filter-bar">
                     <button class="filter-btn active" data-filter="all">Tous</button>
-                    <button class="filter-btn" data-filter="tech">Tech</button>
-                    <button class="filter-btn" data-filter="gaming">Gaming</button>
-                    <button class="filter-btn" data-filter="ia">IA</button>
-                    <button class="filter-btn" data-filter="science">Science</button>
+                    <button class="filter-btn" data-filter="gaming">🎮 Gaming</button>
+                    <button class="filter-btn" data-filter="pc">💻 PC</button>
+                    <button class="filter-btn" data-filter="laptop">💻 Laptops</button>
+                    <button class="filter-btn" data-filter="smartphone">📱 Smartphones</button>
+                    <button class="filter-btn" data-filter="voiture">🚗 Voitures Élec</button>
+                    <button class="filter-btn" data-filter="trottinette">🛴 Trottinettes</button>
+                    <button class="filter-btn" data-filter="ia">🤖 IA</button>
+                    <button class="filter-btn" data-filter="tech">⚡ Tech</button>
+                </div>
+                <div class="year-filter-bar">
+                    <span class="year-label">Année :</span>
+                    <button class="year-btn active" data-year="all">Toutes</button>
+                    <button class="year-btn" data-year="2027">2027</button>
+                    <button class="year-btn" data-year="2026">2026</button>
+                    <button class="year-btn" data-year="2025">2025</button>
+                    <button class="year-btn" data-year="2024">2024</button>
                 </div>
             </div>
             <div class="articles-grid" id="articles-container">
@@ -73,22 +85,23 @@
                         <div class="form-group">
                             <label>Catégorie</label>
                             <select id="article-category" class="form-select">
-                                <option value="tech">Technologie</option>
-                                <option value="gaming">Gaming</option>
-                                <option value="ia">Intelligence Artificielle</option>
-                                <option value="science">Science</option>
-                                <option value="business">Business</option>
-                                <option value="culture">Culture</option>
+                                <option value="gaming">🎮 Gaming</option>
+                                <option value="pc">💻 PC Composants</option>
+                                <option value="laptop">💻 Laptops</option>
+                                <option value="smartphone">📱 Smartphones</option>
+                                <option value="voiture">🚗 Voitures Électriques/Hybrides</option>
+                                <option value="trottinette">🛴 Trottinettes & Scooters</option>
+                                <option value="ia">🤖 IA & Tech</option>
+                                <option value="tech">⚡ Tech Général</option>
                             </select>
                         </div>
                         <div class="form-group">
-                            <label>Ton</label>
-                            <select id="article-tone" class="form-select">
-                                <option value="professional">Professionnel</option>
-                                <option value="casual">Décontracté</option>
-                                <option value="technical">Technique</option>
-                                <option value="journalistic">Journalistique</option>
-                                <option value="humorous">Humoristique</option>
+                            <label>Année de référence</label>
+                            <select id="article-year" class="form-select">
+                                <option value="2027">2027 (Futur)</option>
+                                <option value="2026" selected>2026 (Actuel)</option>
+                                <option value="2025">2025</option>
+                                <option value="2024">2024</option>
                             </select>
                         </div>
                     </div>
@@ -179,10 +192,11 @@
                     <div class="stat-value" id="stat-generated">0</div>
                     <div class="stat-label">Générés aujourd'hui</div>
                 </div>
-                <div class="stat-card">
-                    <div class="stat-icon">👁️</div>
-                    <div class="stat-value" id="stat-views">0</div>
-                    <div class="stat-label">Vues Totales</div>
+                <div class="stat-card credit-card">
+                    <div class="stat-icon">💎</div>
+                    <div class="stat-value" id="stat-credits">1000</div>
+                    <div class="stat-label">Crédits API NVIDIA</div>
+                    <div class="credit-bar"><div class="credit-fill" id="credit-fill" style="width:100%"></div></div>
                 </div>
                 <div class="stat-card">
                     <div class="stat-icon">🏷️</div>
